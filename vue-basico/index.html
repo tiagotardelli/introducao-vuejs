@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <!-- pode-se usar v-on:click, porém para facilitar pode-se usar o @-->
+        <button @click="message = 'Olá Bellio'">Click Aqui</button>
+        {{count}}
+        <button @click="count +=1">Somar mais 1</button>
+        <tr>
+        {{messageCount}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: 'Hello Vue.js',
+                count: 0
+            },
+            computed: {
+                messageCount() {
+                    return `$(this.message)` - `$(this.count)`;
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
